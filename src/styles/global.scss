@@ -1,0 +1,116 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+html,
+body,
+#app {
+	width: 100%;
+
+	margin: 0px;
+	padding: 0px;
+
+	font-family: 'Fira Code', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px;
+	padding: 0.5em 0px;
+}
+
+p {
+	margin: 0px;
+	padding: 0.5em 0px;
+}
+
+pre {
+	width: 100%;
+}
+
+code {
+	background-color: white;
+	padding: 0.2em 0.5em;
+	border-radius: 5px;
+
+	font-family: 'Fira Mono', monospace;
+	font-size: 0.8em;
+}
+
+pre code {
+	display: block;
+	width: 100%;
+	padding: 1.5em;
+
+	position: relative;
+	margin-top: 3em;
+
+	background-color: white;
+	border-radius: 5px;
+	white-space: break-spaces;
+
+	&:before {
+		padding: 0.5em 1em;
+		padding-bottom: 0.75em;
+
+		position: absolute;
+		left: 0px;
+		top: -2em;
+
+		background-color: white;
+		border-radius: 5px;
+
+		font-weight: bold;
+	}
+
+	&.language-typescript:before {
+		content: 'TypeScript';
+	}
+
+	&.language-javascript:before {
+		content: 'JavaScript';
+	}
+
+	&.language-php:before {
+		content: 'PHP';
+	}
+}
+
+ul {
+	margin: 0px;
+
+	li {
+		margin: 1em 0px;
+	}
+}
+
+hr {
+	margin: 1em 0px;
+}
+
+@keyframes highlight {
+	0% {
+		background-color: transparent;
+	}
+	25% {
+		background-color: yellow;
+	}
+	90% {
+		background-color: yellow;
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+.highlight {
+	animation: highlight 5s;
+}

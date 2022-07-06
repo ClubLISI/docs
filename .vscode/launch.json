@@ -1,0 +1,49 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node-terminal",
+			"autoAttachChildProcesses": true,
+			"command": "yarn preview --port 3000",
+			"name": "preview",
+			"request": "launch"
+		},
+		{
+			"type": "node-terminal",
+			"autoAttachChildProcesses": true,
+			"command": "yarn dev",
+			"name": "dev",
+			"request": "launch"
+		},
+		{
+			"type": "pwa-msedge",
+			"request": "launch",
+			"name": "edge",
+			"url": "http://localhost:3000"
+		}
+	],
+	"compounds": [
+		{
+			"name": "Dev in Edge",
+			"configurations": ["dev", "edge"],
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"order": 1
+			}
+		},
+		{
+			"name": "Preview in Edge",
+			"configurations": ["preview", "edge"],
+			"preLaunchTask": "build",
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"order": 2
+			}
+		}
+	]
+}

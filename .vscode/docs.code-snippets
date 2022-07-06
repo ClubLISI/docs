@@ -1,0 +1,22 @@
+{
+	"link-type": {
+		"prefix": "link-type",
+		"body": "[`$1`](/types/$1)$0",
+		"scope": "markdown"
+	},
+	"related": {
+		"prefix": "related-section",
+		"body": ["Related", ": $0"],
+		"scope": "markdown"
+	},
+	"related-type": {
+		"prefix": "related-type",
+		"body": ": [`$1`](/types/$1)$0",
+		"scope": "markdown"
+	},
+	"code-typescript": {
+		"prefix": "code-typescript",
+		"body": ["```typescript", "$0", "```"],
+		"scope": "markdown"
+	}
+}
