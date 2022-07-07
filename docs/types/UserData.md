@@ -5,8 +5,6 @@
 	"label": "Users"
 }
 ---
-# UserData
-
 Related
 : [`ModelData`](/types/ModelData)
 : [`FileData`](/types/FileData)

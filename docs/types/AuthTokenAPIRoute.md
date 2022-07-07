@@ -4,10 +4,9 @@
 	"label": "AuthTokenAPIRoute"
 }
 ---
-# AuthTokenAPIRoute
-
 Related
 : [`JWTModule`](/types/JWTModule)
+: [`UserData`](/types/UserData)
 
 ## Body
 ```typescript

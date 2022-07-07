@@ -14,6 +14,8 @@ const router = useRouter()
 const props = defineProps<{
 	content: string
 	title?: string
+	filePath?: string
+	pageTitle?: string
 }>()
 
 const html = computed(() =>
@@ -28,42 +30,49 @@ const html = computed(() =>
 
 const content = ref<HTMLElement>()
 
-onBeforeMount(() => {
+function setTitle() {
 	if (props.title) document.title = `${props.title} - @clublisi/docs`
 	else document.title = '@clublisi/docs'
-})
+}
+
+function applyScroll() {
+	if (router.currentRoute.value.hash) {
+		const selected = content.value?.querySelector(router.currentRoute.value.hash)
+
+		if (selected) {
+			selected.scrollIntoView()
+			selected.classList.add('highlight')
+		}
+	} else document.scrollingElement?.scrollTo(0, 0)
+}
+
+function applyLinks() {
+	const links = content.value?.querySelectorAll('a')
+	if (links) links.forEach(hookLink)
+}
+
+function hookLink(element: HTMLAnchorElement) {
+	const href = element.getAttribute('href')
+	if (!href) return
+	else if (href.startsWith('http')) {
+		element.setAttribute('target', '_blank')
+		return
+	}
+
+	element.addEventListener('click', event => {
+		event.preventDefault()
+		router.push(href)
+	})
+}
+
+onBeforeMount(() => setTitle())
 
 watch(
 	html,
 	() =>
 		nextTick(() => {
-			if (router.currentRoute.value.hash) {
-				const selected = content.value?.querySelector(router.currentRoute.value.hash)
-
-				if (selected) {
-					selected.scrollIntoView()
-					selected.classList.add('highlight')
-
-					// setTimeout(() => selected.classList.remove('highlight'), 3000)
-				}
-			} else document.scrollingElement?.scrollTo(0, 0)
-
-			const links = content.value?.querySelectorAll('a')
-
-			console.log(links)
-			links?.forEach(a => {
-				const href = a.getAttribute('href')
-				if (!href) return
-				else if (href.startsWith('http')) {
-					a.setAttribute('target', '_blank')
-					return
-				}
-
-				a.addEventListener('click', event => {
-					event.preventDefault()
-					router.push(href)
-				})
-			})
+			applyScroll()
+			applyLinks()
 		}),
 	{ immediate: true }
 )
@@ -71,16 +80,22 @@ watch(
 
 <template>
 	<main class="page">
+		<PageHeader :file-path="props.filePath">
+			<template #title>
+				{{ props.pageTitle ?? props.title }}
+			</template>
+		</PageHeader>
+
 		<div ref="content" class="content" v-html="html" />
 	</main>
 </template>
 
 <style lang="scss" scoped>
 .page {
-	@include flex(row, center);
+	@include flex(column);
 	width: 100%;
 	min-height: 100vh;
-	padding: 3em;
+	padding: 3em 15%;
 
 	background-color: rgb(239, 239, 239);
 	line-height: 1.75em;
@@ -91,7 +106,6 @@ watch(
 
 	.content {
 		width: 100%;
-		max-width: 800px;
 	}
 }
 </style>

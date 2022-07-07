@@ -4,8 +4,6 @@
 	"title": "Authentication"
 }
 ---
-# Authentication
-
 Related
 : [`UserData`](/types/UserData)
 : [`JWTModule`](/types/JWTModule)

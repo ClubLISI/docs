@@ -17,7 +17,10 @@ function mapFileToPage([path, content]: [string, string]): PageData {
 	const url = getPageURL(path)
 	const props = getPageProps(content)
 
+	props.url = url
 	props.content = getPageContent(content)
+	props.filePath = /^.*(?<url>docs.*.md)$/.exec(path)?.groups?.url
+
 	if (!props.order) props.order = 10
 
 	return {

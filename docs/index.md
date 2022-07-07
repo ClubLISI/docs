@@ -2,11 +2,9 @@
 {
 	"order": 1,
 	"title": "Home",
-	"label": "Welcome"
+	"pageTitle": "Welcome!"
 }
 ---
-# Welcome!
-
 This is the documentation site for ClubLISI software and APIs. We are still under construction here, but I hope you enjoy your stay and feel free to report any issues you might come across!
 
 ## About

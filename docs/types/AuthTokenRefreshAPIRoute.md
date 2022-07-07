@@ -4,8 +4,6 @@
 	"label": "AuthTokenRefreshAPIRoute"
 }
 ---
-# AuthTokenRefreshAPIRoute
-
 Related
 : [`JWTModule`](/types/JWTModule)
 

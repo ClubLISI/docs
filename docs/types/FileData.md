@@ -4,8 +4,6 @@
 	"label": "FileData"
 }
 ---
-# FileData
-
 Related
 : [`ModelUUIDData`](/types/ModelData#modeluuiddata)
 

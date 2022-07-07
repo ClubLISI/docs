@@ -4,8 +4,6 @@
 	"label": "ModelData"
 }
 ---
-# ModelData
-
 ```typescript
 export interface ModelData {
 	created: string

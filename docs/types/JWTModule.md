@@ -4,8 +4,6 @@
 	"label": "JWTModule"
 }
 ---
-# JWTModule
-
 ## Config
 ```typescript
 export interface Config {
