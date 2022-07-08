@@ -23,6 +23,6 @@ We can then make requests using Axios's `get`, `post`, `patch`, etc. methods lik
 api.get<UserData>('auth')
 	.then(result => result.data)
 ```
-This would send a `GET` request to `https://mycoolsite.com/api/auth`. The [`<UserData>`](/types/UserData) bit is determining the type of `result.data`, which is what the API responds with.
+This would send a `GET` request to `https://mycoolsite.com/api/auth`. The [`<UserData>`](/types/users) bit is determining the type of `result.data`, which is what the API responds with.
 
 Writing the `api` definition for every example may be tedious. So just understand if we refer to `api`, we are are referring to a Axios instance with the API's base url set.

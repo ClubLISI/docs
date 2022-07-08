@@ -16,7 +16,6 @@ export interface UserData extends ModelData {
 	name: string
 	email: string
 	display_name: string
-	// default is string[] of UserRoleData.name
 	roles: UserRole[] | string[]
 	avatar: FileData | null
 	parent?: UserData
@@ -46,3 +45,18 @@ export interface UserRoleData extends ModelData {
 	users?: UserData[]
 }
 ```
+
+## UserProfile
+```typescript
+export interface UserProfileData {
+	username: string
+	email: string
+	display_name: string
+	first_name: string
+	last_name: string
+	full_name: string
+	phone_number: string
+	parentName: string | null
+	avatarUUID: string | null
+	avatar?: FileData
+}

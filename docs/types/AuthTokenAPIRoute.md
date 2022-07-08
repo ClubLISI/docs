@@ -6,7 +6,7 @@
 ---
 Related
 : [`JWTModule`](/types/JWTModule)
-: [`UserData`](/types/UserData)
+: [`UserData`](/types/users)
 
 ## Body
 ```typescript
