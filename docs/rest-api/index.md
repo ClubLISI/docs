@@ -1,5 +1,5 @@
 ---
 {
-	"title": "Rest API"
+	"title": "REST API"
 }
 ---

@@ -8,13 +8,17 @@ html {
 
 html,
 body,
-#app {
+#root {
 	width: 100%;
 
 	margin: 0px;
 	padding: 0px;
 
 	font-family: 'Fira Code', monospace;
+}
+
+#root {
+	height: 100vh;
 }
 
 h1,
