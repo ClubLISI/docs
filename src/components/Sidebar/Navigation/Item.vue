@@ -30,7 +30,7 @@ const title = computed(
 	<div class="sidebar-navigation-item">
 		<span
 			v-if="!page.props.content || page.props.content === '\n' || page.props.noPage"
-			class="link"
+			class="link nogo"
 		>
 			{{ title }}
 		</span>
@@ -68,9 +68,14 @@ const title = computed(
 
 		color: rgb(239, 239, 239);
 		text-decoration: none;
+
+		&.nogo {
+			width: 100%;
+			border: 2px solid rgb(239, 239, 239);
+		}
 	}
 
-	.link:hover,
+	.link:not(.nogo):hover,
 	& > .router-link-exact-active,
 	& > .router-link-active:not(.router-link-exact-active) {
 		background-color: rgb(239, 239, 239);

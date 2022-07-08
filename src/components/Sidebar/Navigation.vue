@@ -20,21 +20,32 @@ function sortPages(pages: PageData[]) {
 
 <template>
 	<nav class="sidebar-navigation">
-		<template v-for="route of routes">
-			<SidebarNavigationItem :page="route" />
-		</template>
+		<div class="inner">
+			<template v-for="route of routes">
+				<SidebarNavigationItem :page="route" />
+			</template>
+		</div>
 	</nav>
 </template>
 
 <style lang="scss" scoped>
 .sidebar-navigation {
 	@include flex(column);
-	row-gap: 1em;
 
 	width: 100%;
 	flex: 1;
 
 	overflow: hidden;
 	overflow-y: auto;
+	direction: rtl;
+
+	@include fancy-scrollbar;
+
+	.inner {
+		@include flex(column);
+		width: 100%;
+		row-gap: 1em;
+		direction: ltr;
+	}
 }
 </style>
